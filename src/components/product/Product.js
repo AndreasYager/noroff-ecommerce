@@ -12,7 +12,6 @@ const Product = ({ product }) => {
                             {product.discountedPrice < product.price && (
                                 <p>Discounted Price: ${product.discountedPrice.toFixed(2)} (You save ${product.price - product.discountedPrice})</p>
                             )}
-            {/* Add more product details if needed */}
             <Link to={`/product/${product.id}`}>View Product</Link>
         </div>
     );

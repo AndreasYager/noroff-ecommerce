@@ -8,14 +8,12 @@ const Header = () => {
     return (
         <header className="header">
             <div className="logo">
-                <Link to="/">E-Commerce</Link> {/* Replace with your logo or store name */}
+                <Link to="/">E-Commerce</Link> 
             </div>
             <nav className="nav-bar">
-                {/* Navigation items, can be replaced with React Router Links if using React Router */}
                 <Link to="/">Home</Link>
                 <Link to="/products">Products</Link>
                 <Link to="/contact">Contact</Link>
-                {/* More navigation items as needed */}
             </nav>
             <CartIcon itemCount={itemCount} />
         </header>
