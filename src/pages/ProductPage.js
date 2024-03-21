@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Container, Card, CardImg, CardBody, CardTitle, CardText, Row, Col } from 'reactstrap';
+
 
 const ProductPage = () => {
     const [product, setProduct] = useState(null);
-    const { id } = useParams(); 
+    const { id } = useParams();
 
     useEffect(() => {
         const fetchProduct = async () => {
@@ -20,21 +22,34 @@ const ProductPage = () => {
         };
 
         fetchProduct();
-    }, [id]); 
+    }, [id]);
+
     if (!product) {
-        return <p>Loading...</p>; 
+        return <p>Loading...</p>;
     }
 
     return (
-        <div>
-            <h1>{product.title}</h1>
-            <img src={product.image.url} alt={product.image.alt} />
-            <p>{product.description}</p>
-            <p>Price: ${product.price.toFixed(2)}</p>
-            {product.discountedPrice < product.price && (
-                <p>Discounted Price: ${product.discountedPrice.toFixed(2)}</p>
-            )}
-        </div>
+        <Container>
+            <Row>
+                <Col md="6">
+                    <Card>
+                        <CardImg top width="100%" src={product.image.url} alt={product.image.alt} />
+                    </Card>
+                </Col>
+                <Col md="6">
+                    <Card>
+                        <CardBody>
+                            <CardTitle tag="h1">{product.title}</CardTitle>
+                            <CardText>{product.description}</CardText>
+                            <CardText>Price: ${product.price.toFixed(2)}</CardText>
+                            {product.discountedPrice < product.price && (
+                                <CardText>Discounted Price: ${product.discountedPrice.toFixed(2)}</CardText>
+                            )}
+                        </CardBody>
+                    </Card>
+                </Col>
+            </Row>
+        </Container>
     );
 };
 
