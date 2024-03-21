@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Product from '../components/product/Product'; 
+import Product from '../components/product/Product';
+import { Container, Row, Col } from 'reactstrap';
+
 
 const HomePage = () => {
     const [products, setProducts] = useState([]);
@@ -22,20 +24,23 @@ const HomePage = () => {
     }, []);
 
     return (
-        <div>
+        <Container>
             <h1>Our Products</h1>
-            <div>
+            <Row>
                 {Array.isArray(products) && products.length > 0 ? (
                     products.map(product => (
-                        <Product key={product.id} product={product} />
+                        <Col sm="6" md="4" lg="3" key={product.id}>
+                            <Product product={product} />
+                        </Col>
                     ))
                 ) : (
-                    <p>No products available.</p>
+                    <Col>
+                        <p>No products available.</p>
+                    </Col>
                 )}
-            </div>
-        </div>
+            </Row>
+        </Container>
     );
 };
-
 
 export default HomePage;
