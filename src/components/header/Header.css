@@ -1,0 +1,19 @@
+
+.logo-container .logo {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .cart-container {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+header {
+    background-color: #DFB200;
+}
+
+.nav-link {
+    color: white;
+}
