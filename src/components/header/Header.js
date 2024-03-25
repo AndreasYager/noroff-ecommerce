@@ -1,13 +1,12 @@
 import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
-import { Container, Row, Col, Form, Input } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import CartIcon from '../carticon/CartIcon';
 import logo from '../../images/ecom-logo.png';
 
 const Header = () => {
   const itemCount = 0;
-
 
   return (
     <header>
@@ -18,23 +17,12 @@ const Header = () => {
               <img src={logo} alt="E-Commerce Logo" className="logo" />
             </Link>
           </Col>
-          <Col xs="5" md="5" lg="7" className="search-bar">
-            <Form onSubmit={handleSearchSubmit} className="search-form">
-              <Input
-                type="search"
-                name="search"
-                id="searchInput"
-                placeholder="Search Anything"
-                value={searchInput}
-                onChange={handleSearchChange}
-                className="search-input"
-              />
-            </Form>
+          <Col xs="6" md="6" lg="8" className="nav-links">
+            <Link to="/" className="nav-link">Home</Link>
+            <Link to="/#search" className="nav-link">Search</Link>
+            <Link to="/contact" className="nav-link">Contact</Link>
           </Col>
-          <Col xs="2" md="2" lg="2" className="nav-link-container">
-            <Link to="/about" className="nav-link">About</Link>
-          </Col>
-          <Col xs="2" md="2" lg="1" className="cart-container">
+          <Col xs="3" md="3" lg="2" className="cart-container">
             <CartIcon itemCount={itemCount} />
           </Col>
         </Row>

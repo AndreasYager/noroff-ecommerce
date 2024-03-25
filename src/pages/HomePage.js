@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Product from '../components/product/Product';
-import { Container, Row, Col } from 'reactstrap';
-
+import { Container, Row, Col, Input, FormGroup } from 'reactstrap';
 
 const HomePage = () => {
     const [products, setProducts] = useState([]);
+    const [searchInput, setSearchInput] = useState('');
 
     useEffect(() => {
         const fetchProducts = async () => {
@@ -23,12 +23,29 @@ const HomePage = () => {
         fetchProducts();
     }, []);
 
+    const handleSearchChange = (event) => {
+        setSearchInput(event.target.value);
+    };
+
+    const filteredProducts = searchInput
+      ? products.filter(product =>
+          product.title.toLowerCase().includes(searchInput.toLowerCase()))
+      : products;
+
     return (
         <Container>
+            <FormGroup>
+                <Input
+                    type="search"
+                    value={searchInput}
+                    onChange={handleSearchChange}
+                    placeholder="Search Products"
+                />
+            </FormGroup>
             <h1>Our Products</h1>
             <Row>
-                {Array.isArray(products) && products.length > 0 ? (
-                    products.map(product => (
+                {Array.isArray(filteredProducts) && filteredProducts.length > 0 ? (
+                    filteredProducts.map(product => (
                         <Col sm="6" md="4" lg="3" key={product.id}>
                             <Product product={product} />
                         </Col>
