@@ -1,0 +1,9 @@
+.original-price {
+  text-decoration: line-through;
+  color: #ff0000;
+}
+
+.product-card img {
+  max-height: 20vh;
+  object-fit: cover;
+}
