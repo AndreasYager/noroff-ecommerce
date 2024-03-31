@@ -1,0 +1,25 @@
+.footer {
+  background-color: #dfb200; /* Same as header */
+  color: white; /* Assuming you want white text like the header links */
+  padding: 1rem 0; /* Adjust padding to match header's vertical spacing */
+}
+
+.footer-nav {
+  display: flex;
+  justify-content: center; /* Center the links */
+  align-items: center; /* Vertically align links */
+  list-style-type: none; /* Remove bullet points from links if using <li> */
+  padding: 0; /* Remove default padding */
+}
+
+.footer-nav a {
+  color: white;
+  margin: 0 30px; /* Same as header */
+  font-weight: bold; /* Same as header */
+  text-decoration: none; /* Remove underline from links */
+}
+
+.footer-info {
+  text-align: center; /* Center footer information */
+  margin-top: 1rem; /* Space out from the navigation links */
+}
