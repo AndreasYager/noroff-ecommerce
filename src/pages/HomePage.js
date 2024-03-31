@@ -36,7 +36,7 @@ const HomePage = () => {
 
   return (
     <Container>
-      <Row className="hero-section align-items-center my-4">
+      <Row className="hero-section align-items-center mb-4">
         <Col md="6">
           <div className="hero-text">
             <h1>Treat yourself to luxury</h1>
