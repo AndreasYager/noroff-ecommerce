@@ -9,7 +9,7 @@ const Header = () => {
   const itemCount = 0;
 
   return (
-    <header class="mb-4">
+    <header className="mb-4">
       <Container>
         <Row className="align-items-center justify-content-between top-header">
           <Col xs="3" md="3" lg="2" className="logo-container">
