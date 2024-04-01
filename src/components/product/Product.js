@@ -12,7 +12,7 @@ import "./Product.css";
 
 const Product = ({ product }) => {
   return (
-    <Card className="product-card">
+    <Card className="product-card m-1">
       <CardImg
         top
         width="100%"
