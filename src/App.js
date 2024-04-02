@@ -6,7 +6,7 @@ import Layout from "./components/Layout";
 import HomePage from "./pages/HomePage";
 import ProductPage from "./pages/ProductPage";
 import CartPage from "./pages/CartPage";
-import CheckoutSuccessPage from "./pages/CheckoutSuccessPage";
+import CheckoutSuccessPage from "./pages/checkoutsuccess/CheckoutSuccessPage";
 import ContactPage from "./pages/ContactPage";
 
 function App() {
