@@ -1,5 +1,5 @@
 import React from "react";
-import { useCart } from "../../CartContext";
+import { useCart } from "../../context/CartContext";
 import "./CartIcon.css";
 import { Link } from "react-router-dom";
 import cartlogo from "../../images/ecom-cart.png";

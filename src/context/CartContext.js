@@ -28,7 +28,6 @@ export const CartProvider = ({ children }) => {
         // Add the new product with a quantity of 1
         newCart = [...currentCart, { ...product, quantity: 1 }];
       }
-      alert(`${product.title} has been added to your cart.`);
       return newCart;
     });
   };

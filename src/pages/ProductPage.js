@@ -11,12 +11,12 @@ import {
   Col,
   Button,
 } from "reactstrap";
-import { useCart } from "../CartContext";
+import { useCart } from "../context/CartContext";
 
 const ProductPage = () => {
   const [product, setProduct] = useState(null);
   const { id } = useParams();
-  const { addToCart } = useCart(); 
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -39,14 +39,13 @@ const ProductPage = () => {
 
   const handleAddToCart = () => {
     if (product) {
-      addToCart(product); 
+      addToCart(product);
     }
   };
 
   if (!product) {
     return <p>Loading...</p>;
   }
-
 
   const renderDiscount = (price, discountedPrice) => {
     if (discountedPrice < price) {
@@ -64,8 +63,8 @@ const ProductPage = () => {
             <CardImg
               top
               width="100%"
-              src={product.image?.url} 
-              alt={product.image?.alt || "Product Image"} 
+              src={product.image?.url}
+              alt={product.image?.alt || "Product Image"}
             />
           </Card>
         </Col>
@@ -75,7 +74,7 @@ const ProductPage = () => {
               <CardTitle tag="h1">{product.title}</CardTitle>
               <CardText>{product.description}</CardText>
               <CardText>Price: ${product.price.toFixed(2)}</CardText>
-              {product.discountedPrice && ( 
+              {product.discountedPrice && (
                 <CardText>
                   Discounted Price: ${product.discountedPrice.toFixed(2)}
                 </CardText>
