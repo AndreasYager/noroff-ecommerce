@@ -1,19 +1,36 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./Footer.css";
 import { Container, Row, Col } from "reactstrap";
 
 const Footer = () => {
+  const location = useLocation();
+
+  const scrollToSearch = () => {
+    if (location.pathname === "/") {
+      const searchElement = document.getElementById("search");
+      if (searchElement) {
+        searchElement.scrollIntoView({ behavior: "smooth" });
+      }
+    } else {
+      window.location.href = "/#search";
+    }
+  };
+
   return (
     <footer className="footer mt-4">
       <Container>
         <Row>
           <Col className="text-center">
             <nav className="footer-nav">
-              <Link to="/" className="nav-link">
+              <Link
+                to="/"
+                className="nav-link"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 Home
               </Link>
-              <Link to="/#search" className="nav-link">
+              <Link to="/" className="nav-link" onClick={scrollToSearch}>
                 Search
               </Link>
               <Link to="/contact" className="nav-link">

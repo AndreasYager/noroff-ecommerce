@@ -61,6 +61,7 @@ const HomePage = () => {
           value={searchInput}
           onChange={handleSearchChange}
           placeholder="Search Products"
+          id="search"
         />
       </FormGroup>
       <h1>Our Products</h1>
