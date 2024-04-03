@@ -62,7 +62,9 @@ const ContactPage = () => {
     <Container>
       <Row>
         <Col md={{ size: 6, offset: 3 }}>
-          <p>Please fill out the form below to get in touch with us.</p>
+          <p className="mb-5">
+            Please fill out the form below to get in touch with us.
+          </p>
 
           {submitSuccess && (
             <div className="alert alert-success" role="alert">
