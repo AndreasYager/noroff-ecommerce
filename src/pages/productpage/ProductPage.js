@@ -10,11 +10,14 @@ import {
   Row,
   Col,
   Button,
+  Input,
 } from "reactstrap";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../../context/CartContext";
+import "./ProductPage.css";
 
 const ProductPage = () => {
   const [product, setProduct] = useState(null);
+  const [quantity, setQuantity] = useState(1);
   const { id } = useParams();
   const { addToCart } = useCart();
 
@@ -39,13 +42,11 @@ const ProductPage = () => {
 
   const handleAddToCart = () => {
     if (product) {
-      addToCart(product);
+      for (let i = 0; i < quantity; i++) {
+        addToCart(product);
+      }
     }
   };
-
-  if (!product) {
-    return <p>Loading...</p>;
-  }
 
   const renderDiscount = (price, discountedPrice) => {
     if (discountedPrice < price) {
@@ -55,22 +56,28 @@ const ProductPage = () => {
     return null;
   };
 
+  if (!product) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <Container>
       <Row>
-        <Col md="6">
-          <Card>
+        <Col md="6" className="d-flex">
+          <Card className="flex-grow-1">
             <CardImg
               top
               width="100%"
               src={product.image?.url}
               alt={product.image?.alt || "Product Image"}
+              className="img-fluid"
+              style={{ maxHeight: "400px" }}
             />
           </Card>
         </Col>
-        <Col md="6">
-          <Card>
-            <CardBody>
+        <Col md="6" className="d-flex">
+          <Card className="flex-grow-1" style={{ maxHeight: "400px" }}>
+            <CardBody className="d-flex flex-column">
               <CardTitle tag="h1">{product.title}</CardTitle>
               <CardText>{product.description}</CardText>
               <CardText>Price: ${product.price.toFixed(2)}</CardText>
@@ -80,7 +87,22 @@ const ProductPage = () => {
                 </CardText>
               )}
               {renderDiscount(product.price, product.discountedPrice)}
-              <Button color="primary" onClick={handleAddToCart}>
+              <Input
+                type="select"
+                value={quantity}
+                onChange={(e) => setQuantity(parseInt(e.target.value))}
+              >
+                {[...Array(10).keys()].map((n) => (
+                  <option key={n + 1} value={n + 1}>
+                    {n + 1}
+                  </option>
+                ))}
+              </Input>
+              <Button
+                color="primary"
+                onClick={handleAddToCart}
+                className="mt-auto"
+              >
                 Add to Cart
               </Button>
             </CardBody>

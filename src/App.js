@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { CartProvider } from "./context/CartContext";
 import Layout from "./components/Layout";
 import HomePage from "./pages/HomePage";
-import ProductPage from "./pages/ProductPage";
+import ProductPage from "./pages/productpage/ProductPage";
 import CartPage from "./pages/CartPage";
 import CheckoutSuccessPage from "./pages/checkoutsuccess/CheckoutSuccessPage";
 import ContactPage from "./pages/ContactPage";
