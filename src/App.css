@@ -6,3 +6,8 @@
   align-items: center; /* Horizontally center the content, if needed */
   min-height: 64vh;
 }
+
+body {
+  background-color: #fcf7f1;
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+}
