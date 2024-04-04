@@ -1,10 +1,9 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./Header.css";
 import { Container, Row, Col } from "reactstrap";
 import CartIcon from "../carticon/CartIcon";
 import logo from "../../images/ecom-logo.png";
-
+import "./Header.css";
 const Header = () => {
   const itemCount = 0;
   const location = useLocation();
@@ -21,15 +20,22 @@ const Header = () => {
   };
 
   return (
-    <header className="mb-4">
-      <Container>
+    <header>
+      <Container className="mb-4">
+        {/* Top header row for logo and cart */}
         <Row className="align-items-center justify-content-between top-header">
-          <Col xs="3" md="3" lg="2" className="logo-container">
+          <Col xs="6" className="logo-container">
             <Link to="/">
               <img src={logo} alt="E-Commerce Logo" className="logo" />
             </Link>
           </Col>
-          <Col xs="6" md="6" lg="8" className="nav-links">
+          <Col xs="6" className="text-right cart-container">
+            <CartIcon itemCount={itemCount} />
+          </Col>
+        </Row>
+        {/* Navigation links row */}
+        <Row className="nav-row">
+          <Col className="nav-links">
             <Link
               to="/"
               className="nav-link"
@@ -43,9 +49,6 @@ const Header = () => {
             <Link to="/contact" className="nav-link">
               Contact
             </Link>
-          </Col>
-          <Col xs="3" md="3" lg="2" className="cart-container">
-            <CartIcon itemCount={itemCount} />
           </Col>
         </Row>
       </Container>
