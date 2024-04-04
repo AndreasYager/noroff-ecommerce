@@ -1,25 +1,31 @@
 .footer {
-  background-color: #dfb200; /* Same as header */
-  color: white; /* Assuming you want white text like the header links */
-  padding: 1rem 0; /* Adjust padding to match header's vertical spacing */
+  background-color: #dfb200;
+  color: white;
+  padding: 1rem 0;
+  border-radius: 10px 10px 0 0;
 }
 
 .footer-nav {
   display: flex;
-  justify-content: center; /* Center the links */
-  align-items: center; /* Vertically align links */
-  list-style-type: none; /* Remove bullet points from links if using <li> */
-  padding: 0; /* Remove default padding */
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
 }
 
 .footer-nav a {
   color: white;
-  margin: 0 30px; /* Same as header */
-  font-weight: bold; /* Same as header */
-  text-decoration: none; /* Remove underline from links */
+  margin: 0 30px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: antiquewhite;
+  cursor: pointer;
 }
 
 .footer-info {
-  text-align: center; /* Center footer information */
-  margin-top: 1rem; /* Space out from the navigation links */
+  text-align: center;
+  margin-top: 1rem;
 }
