@@ -86,7 +86,7 @@ const ProductPage = () => {
                   Discounted Price: ${product.discountedPrice.toFixed(2)}
                 </CardText>
               )}
-              {renderDiscount(product.price, product.discountedPrice)}
+
               <Input
                 type="select"
                 value={quantity}
@@ -101,7 +101,7 @@ const ProductPage = () => {
               <Button
                 color="primary"
                 onClick={handleAddToCart}
-                className="mt-auto"
+                className="mt-3"
               >
                 Add to Cart
               </Button>
