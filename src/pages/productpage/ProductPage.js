@@ -48,14 +48,6 @@ const ProductPage = () => {
     }
   };
 
-  const renderDiscount = (price, discountedPrice) => {
-    if (discountedPrice < price) {
-      const discount = ((price - discountedPrice) / price) * 100;
-      return <CardText>Discount: {discount.toFixed(2)}% off</CardText>;
-    }
-    return null;
-  };
-
   if (!product) {
     return <p>Loading...</p>;
   }
