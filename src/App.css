@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: center; /* Vertically center the content */
   align-items: center; /* Horizontally center the content, if needed */
-  min-height: 64vh;
+  min-height: 70vh;
 }
 
 body {
