@@ -1,54 +1,41 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import CartIcon from "../carticon/CartIcon";
 import logo from "../../images/ecom-logo.png";
+import contacticon from "../../images/contact-icon.png";
 import "./Header.css";
+import Search from "../Search";
+
 const Header = () => {
   const itemCount = 0;
-  const location = useLocation();
-
-  const scrollToSearch = () => {
-    if (location.pathname === "/") {
-      const searchElement = document.getElementById("search");
-      if (searchElement) {
-        searchElement.scrollIntoView({ behavior: "smooth" });
-      }
-    } else {
-      window.location.href = "/#search";
-    }
-  };
 
   return (
     <header>
       <Container className="mb-4">
-        {/* Top header row for logo and cart */}
-        <Row className="align-items-center justify-content-between top-header">
-          <Col xs="6" className="logo-container">
+        <Row className="align-items-center">
+          {/* Logo */}
+          <Col md="2" className="logo-container">
             <Link to="/">
               <img src={logo} alt="E-Commerce Logo" className="logo" />
             </Link>
           </Col>
-          <Col xs="6" className="text-right cart-container">
-            <CartIcon itemCount={itemCount} />
+
+          {/* Search Bar */}
+          <Col md="8" className="search-bar-container">
+            <Search />
           </Col>
-        </Row>
-        {/* Navigation links row */}
-        <Row className="nav-row">
-          <Col className="nav-links">
-            <Link
-              to="/"
-              className="nav-link"
-              onClick={() => window.scrollTo(0, 0)}
-            >
-              Home
+
+          {/* Contact Link */}
+          <Col md="1" className="text-center">
+            <Link to="/contact">
+              <img src={contacticon} alt="E-Commerce Logo" className="logo" />
             </Link>
-            <Link to="/" className="nav-link" onClick={scrollToSearch}>
-              Search
-            </Link>
-            <Link to="/contact" className="nav-link">
-              Contact
-            </Link>
+          </Col>
+
+          {/* Cart Icon */}
+          <Col md="1" className="text-right cart-container">
+            <CartIcon itemCount={itemCount} />
           </Col>
         </Row>
       </Container>
