@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
 import CartIcon from "../carticon/CartIcon";
 import logo from "../../images/ecom-logo.png";
-import contacticon from "../../images/contact-icon.png";
+import contactIcon from "../../images/contact-icon.png";
 import "./Header.css";
 import Search from "../Search";
 
@@ -13,29 +13,73 @@ const Header = () => {
   return (
     <header>
       <Container className="mb-4">
-        <Row className="align-items-center">
+        {/* Larger */}
+        <Row className="align-items-center d-none d-lg-flex">
           {/* Logo */}
-          <Col md="2" className="logo-container">
+          <Col lg="2" className="logo-container">
             <Link to="/">
-              <img src={logo} alt="E-Commerce Logo" className="logo" />
+              <img
+                src={logo}
+                alt="YAGERS E-Commerce Logo"
+                style={{ maxWidth: "70px", height: "auto" }}
+              />
             </Link>
           </Col>
 
           {/* Search Bar */}
-          <Col md="8" className="search-bar-container">
+          <Col lg="8" className="search-bar-container">
             <Search />
           </Col>
 
-          {/* Contact Link */}
-          <Col md="1" className="text-center">
+          {/* Contact and Cart Icons */}
+          <Col lg="1" className="text-center">
             <Link to="/contact">
-              <img src={contacticon} alt="E-Commerce Logo" className="logo" />
+              <img
+                src={contactIcon}
+                alt="Contact"
+                style={{ maxWidth: "70px", height: "auto" }}
+              />
+            </Link>
+          </Col>
+          <Col lg="1" className="text-lg-right cart-container">
+            <CartIcon itemCount={itemCount} />
+          </Col>
+        </Row>
+
+        {/* Smaller screens */}
+        <Row className="d-lg-none">
+          {/* Logo */}
+          <Col xs="4" className="text-center">
+            <Link to="/">
+              <img
+                src={logo}
+                alt="E-Commerce Logo"
+                className="img-fluid logo"
+              />
+            </Link>
+          </Col>
+
+          {/* Contact Icon */}
+          <Col xs="4" className="text-center">
+            <Link to="/contact">
+              <img
+                src={contactIcon}
+                alt="Contact"
+                style={{ maxWidth: "70px", height: "auto" }}
+              />
             </Link>
           </Col>
 
           {/* Cart Icon */}
-          <Col md="1" className="text-right cart-container">
+          <Col xs="4" className="text-center">
             <CartIcon itemCount={itemCount} />
+          </Col>
+        </Row>
+
+        {/* Search Bar for smaller screens */}
+        <Row className="d-lg-none">
+          <Col xs="12 pb-3" className="search-bar-container">
+            <Search />
           </Col>
         </Row>
       </Container>
