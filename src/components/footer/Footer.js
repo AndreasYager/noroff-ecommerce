@@ -1,50 +1,42 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import "./Footer.css";
+import { Link } from "react-router-dom";
 import { Container, Row, Col } from "reactstrap";
+import "./Footer.css";
+import logo from "../../images/ecom-logo.png"; // Update with your actual logo path
+import contactIcon from "../../images/contact-icon.png"; // Update with your actual contact icon path
+import cartIcon from "../../images/ecom-cart.png"; // Update with your actual cart icon path
 
 const Footer = () => {
-  const location = useLocation();
-
-  const scrollToSearch = () => {
-    if (location.pathname === "/") {
-      const searchElement = document.getElementById("search");
-      if (searchElement) {
-        searchElement.scrollIntoView({ behavior: "smooth" });
-      }
-    } else {
-      window.location.href = "/#search";
-    }
-  };
-
   return (
     <footer className="footer mt-4">
       <Container>
-        <Row>
-          <Col className="text-center">
-            <nav className="footer-nav">
-              <Link
-                to="/"
-                className="nav-link"
-                onClick={() => window.scrollTo(0, 0)}
-              >
-                Home
-              </Link>
-              <Link to="/" className="nav-link" onClick={scrollToSearch}>
-                Search
-              </Link>
-              <Link to="/contact" className="nav-link">
-                Contact
-              </Link>
-            </nav>
+        <Row className="text-center justify-content-center align-items-center">
+          {/* Home Icon */}
+          <Col xs="true" md="auto">
+            <Link to="/" className="footer-icon-link">
+              <img src={logo} alt="Home" className="footer-icon" />
+            </Link>
+          </Col>
+
+          {/* Contact Icon */}
+          <Col xs="true" md="auto">
+            <Link to="/contact" className="footer-icon-link">
+              <img src={contactIcon} alt="Contact" className="footer-icon" />
+            </Link>
+          </Col>
+
+          {/* Cart Icon */}
+          <Col xs="true" md="auto">
+            <Link to="/cart" className="footer-icon-link">
+              <img src={cartIcon} alt="Cart" className="footer-icon" />
+            </Link>
           </Col>
         </Row>
         <Row>
           <Col className="text-center">
             <div className="footer-info">
               <p>
-                &copy; {new Date().getFullYear()} Noroff E-Commerce. All rights
-                reserved.
+                &copy; {new Date().getFullYear()} YAGERS. All rights reserved.
               </p>
             </div>
           </Col>
