@@ -1,0 +1,13 @@
+.footer {
+  background-color: #dfb200;
+  color: white;
+  padding: 1rem 0;
+  border-radius: 10px 10px 0 0;
+  width: 80%;
+  margin-left: 10%;
+}
+
+.footer-icon {
+  max-height: 10vh;
+  width: auto;
+}
